@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Texto con Prefijo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        textarea {
+            width: 90%;
+            height: 200px;
+            font-size: 14px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Pega tu Texto y Agregaremos ' al Inicio de Cada Línea</h2>
+        <textarea id="inputText" placeholder="Pega tu texto aquí..."></textarea>
+        <button onclick="procesarTexto()">Procesar</button>
+        <h3>Texto Modificado:</h3>
+        <textarea id="outputText" readonly></textarea>
+    </div>
+
+    <script>
+        function procesarTexto() {
+            let texto = document.getElementById("inputText").value;
+            let lineas = texto.split("\n");
+            let textoModificado = lineas.map(linea => "' " + linea).join("\n");
+            document.getElementById("outputText").value = textoModificado;
+        }
+    </script>
+
+</body>
+</html>
